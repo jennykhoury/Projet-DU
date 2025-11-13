@@ -1,0 +1,269 @@
+
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+ 
+  <title>Formulaires</title>
+  <meta charset="utf-8">
+  <script src="code1.js"></script>
+   
+   
+</head>
+<body>
+
+  <pre><h1>Les formulaires en HTML</h1></pre>
+  <h2>1. Introduction</h2>
+  <p>Les formulaires HTML permettent d’instaurer un dialogue entre un utilisateur et un site web ou une application. Ils 
+permettent à l'utilisateur d'envoyer des données au site web. La plupart du temps, ces données sont envoyées à des 
+serveurs web mais la page peut aussi les intercepter et les utiliser elle-même. <br> <br>
+L'analyse et le traitement du formulaire devant être effectués côté serveur, la page
+du formulaire sera écrite en langage PHP. En cliquant sur le bouton envoyer les contenus des zones du texte du formulaire seront transmis à une page cible.PHP sous 
+forme de paramètres directement intégrés dans la requête HTTP envoyée par le client au serveur.</p>
+  
+ 
+    <h2>2. Création d'un formulaire avec la balise  &lt; form &gt; </h2>
+    <h3>a. La balise &lt; form &gt;</h3>
+    <p>
+   Les formulaires sont un moyen de récupérer des données à partir du client pour les passer à l’application serveur.
+
+Dans le fichier html, on utilise la balise &lt; form &gt; en y ajoutant l’attribut method qui permet d’indiquer quel est le type de requête HTTP.
+  </p>
+  <form method="get" >
+
+    <label for="nom">Entrez votre nom: </label> 
+    <input type="text" id="nom" name="nom" minlength="4" maxlength="20" required > <br>
+  <br>
+    <label for="email">Entrez votre email:</label> 
+    <input type="email" id="email" name="email" required> <br>
+  <br>
+    <input type="submit" value="Envoyer" >
+	<input type="reset" value="Effacer"  >
+  
+</form>
+<p> <strong> <u> <u> le code</u>: </u></p> </strong>
+<pre>
+&lt;form method="get"&gt;
+
+    &lt;label for="nom"&gt; Entrez votre nom: &lt;/label&gt;
+    &lt;input type="text" name="nom" minlength="4" maxlength="20" required&gt; &lt;br &gt;
+  
+    &lt;label for="email"&gt; Entrez votre email: &lt;/label&gt;
+    &lt;input type="email" name="email" required&gt; &lt;br&gt;
+  
+    &lt;input type="submit" value="Envoyer"&gt;
+    &lt;input type="reset" value="Effacer"&gt;
+&lt;/form &gt;
+</pre>
+<p>
+    <ul>
+   <li><Strong> method</strong> : permet de préciser comment les paramètres saisis dans le formulaire vont être envoyés vers
+        le serveur. Cet attribut peut prendre 2 valeurs : <br>
+<ul> <li> <strong>GET:</strong> Les paramètres sont transmis dans l'URL, et la taille est limitée. Cette requête est utile, par exemple pour enregistrer 
+		une requête effectuée sur un site marchand sous forme de marque-page, dans le navigateur </li> <br>
+      <li><strong>POST:</strong> Les paramètres sont transmis dans le corps de la requête HTTP, la taille est illimitée, les paramètres ne son pas visibles dans l'URL, mais sont accessibles
+	  à l'aide de l'insecteur de propriétés du navigateur web. Il est possible de transmettre tout type de données concernat l'utilisateur 
+		comme des textes courts, des photos ou des vidéos, etc.. <br> </li> </ul> <br>
+		<li> <strong> Dans un formulaire, on trouve en général un bouton pour soumettre le formulaire.</strong> Ce bouton a comme type "submit", 
+      On peut aussi rajouter un bouton permettant de vider tous les champs du formulaire avec le type "reset" </li> </ul></pre>
+</p>		
+<span > <strong><u> A faire: </u><br> <br> 
+    
+    Saisir les informations demandées et cliquer sur enregistrer. Que remarquez-vous dans l'URL? 
+Que doit-on changer dans <u> le code</u> si on veut éviter cela?<br> <br>
+
+ Recopier <u> le code</u> dans notepad++ ou visual studio et le modifier afin que les informations remplies ne soient pas visibles dans l'URL
+    <br> <br>
+    Voir le <a href="form.html">lien suivant</a href> pour mieux comprendre </strong>
+</span> 
+		
+  
+  
+
+      
+    <h3>b. Quelques types de composants graphiques d'un formulaire</h3>
+<p> Pour rendre une page web interactive, on peut insérer des composants d'interface graphique avec lesquels l'utilisateur peut interagir, 
+en agissant dessus avec le doigt (écran tactile) ou la souris. Ces composants sont compatibles avec les navigateurs les plus utilisés. </p>
+<p> Il existe un grand nombre de composants graphiques, les plus courants sont:<strong> zone de texte, bouton poussoir, bouton radio, zone de mot de passe, case à cocher. </strong> </p>
+<p> en HTML, chaque composant peut être inséré avec la balise suivante: </p> 
+<p style="text-align: center;"><strong>&lt; input  type = "text"  value = "Hello World!" &gt;  </strong>
+<p>type et value sont des attributs    "text " et "Hello World!" sont les valeurs de ces attributs.
+L'attribut <strong> type </strong> indique le type du composant, l'attribut <strong> value </strong> définit la valeur par défaut qui sera affichée
+ los du chargement de la page web.
+On peut ajouter un attribut <strong> id </strong> pour identifier de manière unique chaque composant, Chaque composant devient alors
+ manipulable avec un script. On peut aussi modifier l'aspect d'un composant avec du code css. </p>
+  <p>Sauf cas contraires :
+      <ul>
+        <li>On utilise la balise &lt;input&gt; pour définir un composant</li>
+        <li>Le type de composant est indiqué grâce à l'attribut <em>type</em></li>
+        <li>Un identifiant est associé au composant pour pouvoir l'exploiter depuis javascript ou css (Voir après avec la séquence sur javascript)</li>
+        <li>Un nom est associé au composant pour pouvoir récupérer les données saisies côté serveur</li>
+        <li>Un attribut <em>placeholder</em> permet d'afficher en grisé un texte informatif sur l'information à saisir</li>
+      </ul>
+    </p>
+	<ol>
+	<li>
+    <h4>Zone de saisie de texte</h4>
+	<p> Il est utlisé pour créer un champ de saisie permettant à l'utilisateur d'entrer du texte sur une seule ligne. </p>
+    <pre>&lt;input type="<strong>text</strong>" size="<em>nbCaractères</em>" id="<em>identifiant</em>" name="<em>nom</em>" placeholder="<em>texteDAide</em>"/&gt;</pre>
+    <input type="text" size="15"  placeholder="texte à saisir">
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+&lt;input  type="text"  size="15"  placeholder = "texte à saisir"&gt;
+</div>
+<p>Le placeholder dans un champ input HTML sert à afficher un texte indicatif à l’intérieur du champ avant que l’utilisateur ne saisisse quoi que ce soit.
+</p>
+
+
+</li>
+<li>
+    <h4>Zone de saisie de mot de passe</h4>
+	<p> Il est utlisé pour créer un champ de saisie où les caractères entrés sont masqués (souvent remplacés par des points ou des astérisques).
+	Cela permet de protéger visuellement les informations sensibles, comme les mots de passe, lors de leur saisie. </p>
+    <pre>&lt;input type="<strong>password</strong>" size="<em>nbCaractères</em>" id="<em>identifiant</em>" name="<em>nom</em>" title="<em>texteDAide</em>"&gt;</pre>
+    <input type="password" size="15"  title="mot de passe"/>
+	<p> <strong> <u> <u> le code</u></u>: </p> </strong>
+<div>
+&lt;input  type="password"  size="15"  title = "mot de passe"&gt;
+
+</div>
+<p> L’attribut title sur chaque champ affiche une infobulle quand l’utilisateur survole le champ avec sa souris.
+</p>
+</li>
+<li>
+    <h4>Zone de saisie de nombre</h4>
+	<p> Permet de créer un champ de formulaire permettant à l'utilisateur de saisir uniquement des valeurs numériques.
+	Ce type de champ inclut des fonctionnalités intégrées pour valider les entrées et rejeter les valeurs non numériques. </p>
+    <pre>&lt;input type="<strong>number</strong>" id="<em>identifiant</em>" name="<em>nom</em>" placeholder="<em>texteDAide</em>"&gt;</pre>
+    <input type="number" id="id1" placeholder="nb de pattes"/>
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+&lt;input type="number" id="id1" placeholder="nb de pattes"&gt;
+
+</div>
+<p> on peut aussi ajouter des attributs min et max pour limiter les choix.
+</li>
+<li>
+    <h4>Zone de saisie de date</h4>
+	<p> C'est un attribut utilisé dans les formulaires pour permettre à l'utilisateur de sélectionner une date via un sélecteur de date (date picker).
+	Ce champ est particulièrement utile pour garantir que les dates saisies respectent un format standardisé (année-mois-jour : YYYY-MM-DD). </p>
+    <pre>&lt;input type="<strong>date</strong>" id="<em>identifiant</em>" name="<em>nom</em>"&gt;</pre>
+    <input type="date" id="id7"/>
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+&lt;input type="date"&gt;
+
+</div>
+</li>
+<li>
+    <h4>Case à cocher</h4>
+	<p> C'est un type d'élément de formulaire utilisé pour afficher une case à cocher. 
+	Cet élément permet à l'utilisateur de sélectionner une ou plusieurs options parmi un ensemble de choix. </p>
+    <pre>&lt;input type="<strong>checkbox</strong>" id="<em>identifiant</em>" name="<em>nom</em>"&gt;</pre>
+    <label>participera à la réunion</label> <input type="checkbox" id="id8">
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+&lt;input type="checkbox" id="id2"&gt;
+
+</div>
+</li>
+<li>
+    <h4>Bouton radio</h4>
+	<p>Il est utilisé pour créer des boutons radio dans un formulaire. Ces boutons permettent à l'utilisateur de choisir une seule option parmi un groupe d'options prédéfinies. 
+	Ils sont souvent utilisés lorsque vous voulez limiter la sélection à une seule valeur dans un ensemble.</p>
+    <pre>&lt;input type="<strong>radio</strong>" id="<em>identifiant</em>" name="<em>nom</em>"&gt;</pre>
+    <p>Attention : veillez à mettre le même nom aux boutons radio fonctionnant ensemble.</p>
+    homme <input type="radio"  name="sexe" value="homme"/> <br/>
+    femme <input type="radio"  name="sexe" value="femme"/>
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+homme &lt;input type="radio"  name="sexe" value="homme"&gt; <br>
+femme &lt;input type="radio" name="sexe" value="femme"&gt;
+</div>
+<p> Explications :
+<ul>
+<li>input type="radio" : Définit un bouton radio. </li>
+<li>name="sexe" : Tous les boutons radio ayant le même nom appartiennent au même groupe, ce qui permet de sélectionner une seule option à la fois.</li>
+<li>value="femme" : La valeur envoyée au serveur si ce bouton est sélectionné. </li>
+Lorsque vous ouvrez ce code dans un navigateur, vous pourrez sélectionner un seul choix parmi les options proposées. </ul></p>
+
+
+
+</li>
+<li>
+    <h4>Bouton poussoir</h4>
+	<p> C'est utilisé pour créer des boutons interactifs sur une page web.
+	Les boutons de type button sont souvent utilisés avec des scripts JavaScript pour exécuter des actions personnalisées lorsqu'ils sont cliqués.</p>
+    <pre>&lt;input type="<strong>button</strong>" value= "valeur "id="<em>identifiant</em>" name="<em>nom</em>"&gt;</pre>
+    
+     <input type="button" value="cliquer ici" name="bouton" /> <br/>
+
+	<p> <strong> <u> le code</u>: </p> </strong>
+<div>
+ &lt;input type="button"  name="bouton" value="cliquer ici"&gt; <br>
+
+</div>
+
+
+
+
+</li>
+<li>
+    <h4>Liste d'options</h4>
+	<p> C'est un élément utilisé pour définir des choix dans un menu déroulant ou une liste de sélection. </p>
+    <pre>
+&lt;<strong>select</strong>" id="<em>identifiant</em>"&gt;
+    &lt;<strong>option</strong> value="<em>valeurRenvoyée1</em>"&gt;Texte affiché1&lt;<strong>/option</strong>&gt;
+    &lt;<strong>option</strong> value="<em>valeurRenvoyée2</em>" selected="true"&gt;Texte affiché2&lt;<strong>/option</strong>&gt;
+    &lt;<strong>option</strong> value="<em>valeurRenvoyée3</em>"&gt;Texte affiché3&lt;<strong>/option</strong>&gt;
+&lt;<strong>/select</strong>"&gt;</pre>
+  <select >
+    <option value="choix1"> choix 1</option>
+    <option value="choix2">choix 2 </option>
+    <option value="choix 3">choix 3</option>
+	 
+  </select>
+  <button type="submit">Envoyer</button>
+  <p> <strong> <u> le code</u>: </p> </strong>
+<div>
+&lt;select&gt; <br>
+&lt;option value="choix 1" &gt; choix 1&lt;/option&gt; <br>
+&lt;option value="choix 2" &gt; choix 2 &lt;/option&gt;<br>
+&lt;option value="choix 3" &gt; choix 3&lt;/option&gt;<br>
+&lt;/select&gt; <br>
+ &lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+</div>
+<p>Explications :
+<ul>
+<li> select : Crée une liste déroulante. </li>
+<li> option : Définit chaque option dans la liste. </li>
+<li> L'attribut value indique la valeur envoyée au serveur lors de la soumission du formulaire. </li>
+<li> button : Permet de soumettre le formulaire.</li>
+</ul> </p>
+ </li>
+ <li> <h4> type range: </h4>
+ <p>  C'est un type d'élément de formulaire utilisé pour créer un contrôle de curseur (slider). Il permet à l'utilisateur de sélectionner une valeur numérique comprise entre deux bornes définies. 
+ Ce type est souvent utilisé lorsque la valeur exacte n'est pas critique, mais qu'une estimation visuelle est suffisante. </p>
+ Niveau en html:
+ <input type="range" name="niveau" min="0" max="10">
+ <p> <strong> <u> le code</u>: </p> </strong>
+<div>
+ Niveau en html: &lt;input type="range"  name="niveau" min="0" max= "10" &gt; <br>
+
+</div> </li>
+ </ol>
+  
+  <br>
+  <br>
+  <h2> 3. Exercices </h2>
+  <ul>
+  <li> <p> <strong>Exercice 1: </strong> Ecrire un code pour afficher un formulaire d'insciption comme sur l'image ci-dessous:</p>
+  <img src="inscription.png"  width="300" height="200" style="display: block; margin: auto;"> 
+<a href=="#" onclick="ouvrirLienProtege1(event,'Exercice1.html')"> Correction </a></li>
+  <li> <p> <strong> Exercice 2: </strong> Ecrire un code pour lancer le sondage suivant: </p>
+  <img src="sondage.png"   width="300" height="400" style="display: block; margin: auto;"> 
+<a href=="#" onclick="ouvrirLienProtege2(event,'Exercice2.html')"> Correction </a></li>
+  </ul>
+  <br>
+  <br>
+</body>
+</html>
