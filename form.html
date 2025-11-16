@@ -4,22 +4,67 @@
 </head>
 
 <body>
-    <pre>
-    <p> 
-    Cliquer sur <a href = "https://www.cahier-nsi.fr/formulaire1/"> ce lien </a>, remplir les informations, puis cliquer Ctrl U pour voir le code html
-    de la page, Indiquer le nom de la méthode employée pour
-    transmettre les informations, ainsi que le nom de la page cible
-    vers laquelle seront envoyées les informations de connexion.
+<span> Exemple avec la méthode GET</span>
+<pre>Cliquer sur <a href = "https://www.cahier-nsi.fr/formulaire1/"> ce lien </a>, remplir les informations, puis cliquer Ctrl U pour voir le code html
+de la page, Indiquer le nom de la méthode employée pour transmettre les informations, ainsi que le nom de la page cible vers laquelle seront envoyées les informations de connexion.
 <br>
-    Cette page cible est localisée sur le serveur web.
-     
-    Regarder le code de la page <a href="cible.php" >cible</a>
-    Cette page contient du code PHP, c'est un script côté serveur,
-    qui n'est pas visible par l'utilisateur côté client.</p>
+Cette page cible est localisée sur le serveur web.
+Regarder le code de la page <a href="cible.php" >cible</a>. Cette page contient du code PHP, c'est un script côté serveur, qui n'est pas visible par l'utilisateur côté client.
     </pre>
-<pre><p>
-    Aller maintenant dans <a href = "https://www.cahier-nsi.fr/formulaire2/">ce lien</a> et remplissez les informations. 
-    Que lisez-vous maintenant dans la barre d'adresse du navigateur?
-</p>
- </pre>
+<span>Exemple avec la méthode POST</span>
+<pre>Aller maintenant dans <a href = "https://www.cahier-nsi.fr/formulaire2/">ce lien</a> et remplissez les informations. Que lisez-vous maintenant dans la barre d'adresse du navigateur?
+</pre>
+<span>Serveur local avec Python</span>
+<p>Il est possible de créer un serveur web local à partir de Python.
+Il peut s'avérer intéressant d'implémenter un serveur web dans votre application. Cela permet notamment une communication entre les programmes via un navigateur.
+On créé d'abord un script serveur.py. </p>
+<pre>
+import http.server
+PORT = 8888
+server_address = ("", PORT)
+server = http.server.HTTPServer
+handler = http.server.CGIHTTPRequestHandler
+handler.cgi_directories = ["/"]
+print("Serveur actif sur le port :", PORT)
+httpd = server(server_address, handler)
+httpd.serve_forever()
+</pre>
+<p>Nous allons maintenant créér un fichier index.py qui sera placé dans le répertoire courant.</p>
+<pre>
+import cgi <br> 
+form = cgi.FieldStorage()
+print("Content-type: text/html; charset=utf-8\n")
+htmlDebut = """ 
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Serveur&lt;/title&gt;
+ &lt;/head&gt;
+&lt;body&gt;
+  
+  &lt;section&gt;
+    &lt;p> Entrez votre nom : &lt;/p&gt;
+    &lt;form action="/index.py" method="post"&gt;
+        &lt;input type="text" name="name" placeholder="Votre nom" value=""/&gt;
+        &lt;input type="submit" name="send" value="Envoyer information au serveur"&gt;
+    &lt;/form&gt;
+  &lt;/section&gt;
+   """
+htmlFin=  """
+&lt;/body&gt;
+&lt;/html&gt;
+"""
+print(htmlDebut + htmlFin)
+</pre>
+<br>
+
+<p>On exécute le script serveur.py, puis le script index.py</p>
+
+<p>On utilise alors le navigateur firefox(qui sert d'interface). </p>
+
+<p>On insère l'adresse : localhost:8888/index.py</p>
+
+<pre><p>Après avoir remplis le formulaire, ouvrir l'inspecteur de la page et aller dans "Network" puis "request".<b> Que peut-on conclure?</b>
+</p></pre> <br> <br>
 </body>
